@@ -1,0 +1,1579 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="devsite">
+
+  
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="/_static/js/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="/_static/css/screen.css" />
+    <link rel="shortcut icon" href="/_static/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/_static/images/apple-touch-icon.png">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+    <script src="//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw"></script>
+
+    <script type="text/javascript" src="//www.gstatic.com/feedback/api.js"></script>
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <!--[if lt IE 9]>
+    <script src="/_static/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  
+  <title>Annotating JavaScript for the Closure Compiler - Closure Tools &mdash; Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+    
+
+  </head>
+  <body class="two-column docs">
+    
+    <div id="sandbar">
+      
+      
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="/">
+    <img src="/_static/images/developers-logo.svg" alt="Google"/>
+  </a>
+<script>
+if (!Modernizr || !Modernizr.svg) {
+  $('#gc-logo img').attr({src:'/_static/images/developers-logo.png'});
+}
+</script>
+
+  <div class="gc-social">
+    
+    <span class="signed-in">
+      <div>
+        <a class='email' href="https://plus.google.com/me">Mwaness@gmail.com</a>
+        <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/closure/compiler/docs/js-for-compiler&amp;service=ahsid">Sign out</a>
+      </div>
+      <img src="/_static/images/silhouette36.png?sz=30"/>
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="/search/results" method="GET">
+    <div class="searchbox">
+      
+      
+        <span class="button button-blue mini">Closure Tools</span>
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder='Search' autocomplete="off" />
+    </div>
+    <button class="button button-blue">
+      <img src="/_static/images/search.png" alt="Search"/>
+    </button>
+    
+      <input type="hidden" name="p" id="search_project" value="/closure" />
+    
+  </form>
+
+</header>
+
+
+<script>
+  (function() { var a=window.devsite||{};window.devsite=a;var _gaq=_gaq||[];WebFontConfig={google:{families:["Open+Sans"]}};a.location=window.location;a.reloadWindow=function(){a.location.reload()};a.inProd=function(){return a.location.hostname.match(/\.google\.com$/)&&!a.location.hostname.match(/\.corp\.google\.com$/)};a.openWindow=window.open;a.devsite=a.devsite||{};a.devsite.HOSTNAME=a.inProd()?"//developers.google.com":"";a.devsite.dialogConfig={autoOpen:!1,modal:!0,show:"fade",dialogClass:"msgDialog",closeText:"",resizable:!1,draggable:!1,zIndex:9999};
+a.KD_FADE_LONG=218;a.KD_FADE_SHORT=130;a.progress=a.progress||{};a.progress.INTERVAL_TIME_MS=460;a.progress.MAX_LOOP=100;a.progress.RIGHT_MARGIN=6;a.progress.TOP_MARGIN=-15;
+a.progress.kennedyProgressDot=function(d){a.progress.circleInnerHtml='<span class="mask first"><span class="base"></span><span class="mover"></span></span><span class="mask second"><span class="base"></span><span class="mover"></span></span>';a.progress.spinnerHtml='<div class="circle initial"><span class="mask"><span class="mover"></span></span></div><div class="circle red"></div><div class="circle yellow"></div><div class="circle green"></div><div class="circle blue"></div>';var c=$("<div></div>").prop("id",
+"loader").prop("class","yellow").html(a.progress.spinnerHtml);c.find(".red").html(a.progress.circleInnerHtml);c.find(".blue").html(a.progress.circleInnerHtml);c.find(".green").html(a.progress.circleInnerHtml);c.find(".yellow").html(a.progress.circleInnerHtml);c.css({position:"absolute",right:a.progress.RIGHT_MARGIN+"px",top:a.progress.TOP_MARGIN+"px"});d.append(c);d=function(){this.colorIndex=-1;this.colors=["red","yellow","green","blue"];this.loader=c;this.loopCount=0;this.shouldStop=!1};d.prototype.start=
+function(){var b=this;this.loader.removeClass();this.loader.addClass("firstTime");this.interval=setInterval(function(){b.loop()},a.progress.INTERVAL_TIME_MS)};d.prototype.loop=function(){this.loopCount+=1;this.loader.hasClass("firstTime")?(this.loader.removeClass("firstTime"),this.loader.addClass("initial")):this.loader.hasClass("stopped")?(this.loader.removeClass("stopped"),this.loader.addClass("finishing")):this.loader.hasClass("finishing")?(clearInterval(this.interval),c.remove()):(this.colorIndex=
+(this.colorIndex+1)%this.colors.length,this.loader.removeClass(),this.loader.addClass(this.colors[this.colorIndex]),(this.shouldStop||this.loopCount>a.progress.MAX_LOOP)&&this.loader.addClass("stopped"))};d.prototype.stop=function(){this.shouldStop=!0};var f=new d;return d={start:function(){$.fx.off||f.start()},clear:function(){c.remove()},error:function(){f.stop()}}};a.progress=a.progress||{};
+a.progress.progressDot=function(d){function c(){e+=1;100>e&&b.animate({opacity:"toggle"},a.KD_FADE_LONG,c)}var f=6,b=d.parent().find(".progress");b.remove();b=$("<div></div>").addClass("progress");b.css({position:"absolute","border-radius":f+"px",border:f+"px solid #3D9400",right:f+"px",top:d.parent().height()/2-f+"px",width:0,height:0});d.parent().append(b);var e=0;return d={start:function(){$.fx.off||c()},clear:function(){b.remove()},error:function(){b.stop();b.css({opacity:1,border:f+"px solid #DD4B39"})}}};a.location=window.location;a.setTimeout=function(){return window.setTimeout.apply(window,arguments)};a.clearTimeout=function(){window.clearTimeout.apply(window,arguments)};a.localInit=function(){a.search.init()};a.search={KEY_ESC:27,fadeTime:a.KD_FADE_SHORT,keyDelay:300};
+a.search.init=function(){window.devsite.search.initResultHandlers();var d=$(".gc-search");d.submit(function(){if(window.devsite.geo){var b=window.devsite.geo.lat+","+window.devsite.geo.lon,b=$('<input type="hidden" name="l"/>').val(b);d.append(b)}});var c=$("#q");c.unbind("keyup click");c.bind("keyup click",function(b){a.search.timeout&&a.clearTimeout(a.search.timeout);$(this).val()&&b.keyCode!=a.search.KEY_ESC?a.search.timeout=a.setTimeout(function(){a.search.updateResults()},a.search.keyDelay):
+a.search.removeAutocomplete()});var c=$(".searchbox").children(".button"),f=$("#restrict input");(f.is(":checked")||0==f.length&&0!=c.length)&&a.search.grow();$("body").delegate("#restrict input","click",function(){$(this).is(":checked")?a.search.grow($("#restrict input").val()):a.search.shrink();a.search.updateResults();$("#q").focus()})};
+a.search.initResultHandlers=function(){$(".search-results .result").unbind("click");$(".search-results .result").click(function(){var d={type:$(this).data("type"),url:$(this).data("url"),hl:$(this).data("hl"),q:$(this).data("q")};$.post("/search/go",d,function(c){c&&(a.location.href=c)});return!1})};a.search.fadeOutIfExists=function(d,c,f){d&&d.length?d.fadeOut(c,f):f()};a.search.removeAutocomplete=function(){var d=$(".search-autocomplete");d.remove();a.search.lastQ=null};
+a.search.grow=function(d){var c=$("#q"),f=$(".searchbox"),b=$(".gc-search").children("button"),e=f.children(".button");if(d){var e=c.val(),g=$(".results").data("query-match");g&&c.val(e.substr(g.length+1));e=$("<span></span>");e.addClass("button button-blue mini");e.text($("#restrict").find("span").text());e.data("query-match",g);f.prepend(e);g=$("<input />");g.attr({id:"search_project",type:"hidden",name:"p",value:d});$(".gc-search").append(g)}e.append($("<pre>  X</pre>"));g=$(".searchbox").width();
+d=e.outerWidth(!0);var k=f.outerWidth(!0)+d;f.css("width",k+"px");c.css("width",g+"px");c=b.offset();c.left+=d+10;b.offset(c);b=function(){a.search.shrink();$("#q").focus()};e.click(b)};
+a.search.shrink=function(){var d=$("#q"),c=$(".searchbox"),f=c.children("input"),b=c.children(".button"),e=b.data("query-match");e&&f.val($.trim(e)+" "+f.val());f=$(".gc-search").children("button");$("#restrict input").prop("checked",!1);$("#search_project").remove();e=b.outerWidth(!0);b.remove();b=f.offset();b.left-=e+10;c.css("width","");d.css("width","100%");f.offset(b)};
+a.search.updateResults=function(){var d=$(".searchbox"),c=$("#q"),f=$("#search_project"),b={q:$.trim(c.val()||"")};window.devsite.geo&&(b.l=window.devsite.geo.lat+","+window.devsite.geo.lon);f&&f.val()&&(b.p=escape(f.val()));if(!a.search.lastQ||a.search.lastQ.q!=b.q||a.search.lastQ.p!=b.p){a.search.lastQ=b;a.search.xhr&&a.search.xhr.abort();var e=$(".search-results");b.n=e.data("n")||4;var g=a.progress.kennedyProgressDot(d);g.start();a.search.xhr=$.get("/search/results",b,function(f){g.clear();f&&
+($("#what-q").text(b.q),e=$(".search-results"),a.search.fadeOutIfExists(e,a.search.fadeTime,function(){e.empty();if($.trim(f).length){if(!e.length){e=$("<div></div>").addClass("search-results search-autocomplete").data("n",4);$("body").append(e);var g=d.offset();e.css({position:"absolute",top:g.top+d.outerHeight()+3,left:g.left})}e.append(f);var g=$("#search-next"),h=e.children(".results").data("c");g.length?h?(g.attr("href","/search/results?c="+encodeURIComponent(h)+"&q="+encodeURIComponent(b.q)),
+g.show()):g.hide():$("#search-full").show();$("body").bind("click.searchAutocomplete",function(b){$.contains(e.get(0),b.target)||e.is(b.target)||c.is(b.target)||!e.hasClass("search-autocomplete")||(a.search.removeAutocomplete(),$(this).unbind("click.searchAutocomplete"))});a.search.initResultHandlers();e.fadeIn(a.search.fadeTime)}}))});a.search.xhr.error(function(){g.error()})}};
+ })();
+
+  if (window.jQuery) {
+    $(document).ready(function() {
+      window.devsite.search.init();
+
+      var loginLink = $('#loginLink');
+      if (loginLink.length > 0) {
+        loginLink.click(devsite.devsite.login);
+      }
+    });
+  }
+</script>
+
+      
+    </div>
+    
+
+    
+    <div id="gc-wrapper" itemscope itemtype="http://schema.org/Article">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1" />
+      
+
+      
+
+      <div id="gc-topnav">
+        <div>
+
+          
+          
+
+          <ul>
+
+            
+            
+
+            
+            
+            
+            
+            <li class=""><a href="/">Home</a></li>
+            
+            <li class="active"><a href="/products/">Products</a></li>
+            
+            <li class=""><a href="/events/">Conferences</a></li>
+            
+            <li class=""><a href="/showcase/">Showcase</a></li>
+            
+            <li class=""><a href="/live/">Live</a></li>
+            
+            <li class=""><a href="/groups/">Groups</a></li>
+            
+
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+      
+      
+        <div id="gc-appbar">
+          
+          
+<h1>
+
+  <a href="/closure/">Closure Tools</a>
+
+  
+  
+  <div class="plusone-container">
+    <div class="g-plusone"
+      data-href="https://developers.google.com/closure/compiler/docs/js-for-compiler"
+      data-size="medium"
+      data-source="google:developers"></div>
+  </div>
+  
+
+
+
+
+</h1>
+
+
+          
+        </div>
+      
+      
+
+      
+        
+      <div id="gc-main" class="main">
+        
+        
+  
+  
+      
+      
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <nav class="gc-toc"><ul><li class=""><a href="/closure" data-title="Closure Tools"><span>Closure Tools</span></a></li><li class=""><a href="/closure/compiler" data-title="Compiler"><span>Compiler</span></a><ul><li class=""><a href="/closure/compiler/docs/overview" data-title="Documentation"><span>Documentation</span></a><ul><li class=""><span class="tlw-title" data-title="Closure Compiler Service UI">Closure Compiler Service UI</span><ul><li class=""><a href="/closure/compiler/docs/gettingstarted_ui" data-title="Getting Started"><span>Getting Started</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Closure Compiler Service API">Closure Compiler Service API</span><ul><li class=""><a href="/closure/compiler/docs/gettingstarted_api" data-title="Getting Started"><span>Getting Started</span></a></li><li class=""><span class="tlw-title" data-title="Tutorials">Tutorials</span><ul><li class=""><a href="/closure/compiler/docs/api-tutorial1" data-title="Communicating with the API"><span>Communicating with the API</span></a></li><li class=""><a href="/closure/compiler/docs/api-tutorial2" data-title="Compressing Files with the API"><span>Compressing Files with the API</span></a></li></ul></li><li class=""><a href="/closure/compiler/docs/api-ref" data-title="API Reference"><span>API Reference</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Closure Compiler Application">Closure Compiler Application</span><ul><li class=""><a href="/closure/compiler/docs/gettingstarted_app" data-title="Getting Started"><span>Getting Started</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Closure Inspector">Closure Inspector</span><ul><li class=""><a href="/closure/compiler/docs/inspector" data-title="Inspector Guide"><span>Inspector Guide</span></a></li><li class=""><a href="/closure/compiler/docs/inspector_caja" data-title="Inspector and Caja"><span>Inspector and Caja</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Advanced Topics and Reference">Advanced Topics and Reference</span><ul><li class=""><a href="/closure/compiler/docs/compilation_levels" data-title="Compilation Levels"><span>Compilation Levels</span></a></li><li class=""><a href="/closure/compiler/docs/limitations" data-title="Restrictions Imposed by the Compiler"><span>Restrictions Imposed by the Compiler</span></a></li><li class=""><a href="/closure/compiler/docs/api-tutorial3" data-title="Advanced Compilation"><span>Advanced Compilation</span></a></li><li class=""><a href="/closure/compiler/docs/js-for-compiler" data-title="Annotating JavaScript for the Compiler"><span>Annotating JavaScript for the Compiler</span></a></li><li class=""><a href="/closure/compiler/docs/error-ref" data-title="Error and Warning Reference"><span>Error and Warning Reference</span></a></li></ul></li></ul></li><li class=""><a href="http://code.google.com/p/closure-compiler/" data-title="Project on Google Code"><span>Project on Google Code</span></a></li><li class=""><a href="/closure/compiler/faq" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="/closure/compiler/community" data-title="Community"><span>Community</span></a></li></ul></li><li class=""><a href="/closure/library" data-title="Library"><span>Library</span></a><ul><li class=""><a href="/closure/library/docs/overview" data-title="Documentation"><span>Documentation</span></a><ul><li class=""><span class="tlw-title" data-title="Getting Started">Getting Started</span><ul><li class=""><a href="/closure/library/docs/introduction" data-title="Finding Your Way around the Library"><span>Finding Your Way around the Library</span></a></li><li class=""><a href="/closure/library/docs/gettingstarted" data-title="Getting Started with the Closure Library"><span>Getting Started with the Closure Library</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Tutorials">Tutorials</span><ul><li class=""><a href="/closure/library/docs/tutorial" data-title="Building an Application with Closure"><span>Building an Application with Closure</span></a></li><li class=""><a href="/closure/library/docs/events_tutorial" data-title="Event Handling with Closure"><span>Event Handling with Closure</span></a></li><li class=""><a href="/closure/library/docs/closurebuilder" data-title="Using ClosureBuilder"><span>Using ClosureBuilder</span></a></li><li class=""><a href="/closure/library/docs/depswriter" data-title="Using DepsWriter"><span>Using DepsWriter</span></a></li></ul></li><li class=""><span class="tlw-title" data-title="Cookbook">Cookbook</span><ul><li class=""><a href="/closure/library/docs/xhrio" data-title="XhrIo"><span>XhrIo</span></a></li></ul></li><li class=""><a href="http://docs.closure-library.googlecode.com/git/index.html" data-title="API Reference"><span>API Reference</span></a></li><li class=""><a href="http://code.google.com/p/closure-library/w/list" data-title="Project Wiki"><span>Project Wiki</span></a></li><li class=""><span class="tlw-title" data-title="Archived">Archived</span><ul><li class=""><a href="/closure/library/docs/calcdeps" data-title="Using the Dependency Calculation Script"><span>Using the Dependency Calculation Script</span></a></li></ul></li></ul></li><li class=""><a href="http://code.google.com/p/closure-library/" data-title="Project on Google Code"><span>Project on Google Code</span></a></li><li class=""><a href="/closure/library/faq" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="/closure/library/community" data-title="Community"><span>Community</span></a></li></ul></li><li class=""><a href="/closure/templates" data-title="Templates"><span>Templates</span></a><ul><li class=""><a href="/closure/templates/docs/overview" data-title="Documentation"><span>Documentation</span></a><ul><li class=""><a href="/closure/templates/docs/whats_new" data-title="What&#39;s New"><span>What&#39;s New</span></a></li><li class=""><a href="/closure/templates/docs/helloworld_js" data-title="Hello World Using JavaScript"><span>Hello World Using JavaScript</span></a></li><li class=""><a href="/closure/templates/docs/helloworld_java" data-title="Hello World Using Java"><span>Hello World Using Java</span></a></li><li class=""><a href="/closure/templates/docs/concepts" data-title="Concepts"><span>Concepts</span></a></li><li class=""><a href="/closure/templates/docs/commands" data-title="Commands"><span>Commands</span></a></li><li class=""><a href="/closure/templates/docs/functions_and_directives" data-title="Functions and Print Directives"><span>Functions and Print Directives</span></a></li><li class=""><a href="/closure/templates/docs/javascript_usage" data-title="JavaScript Usage"><span>JavaScript Usage</span></a></li><li class=""><a href="/closure/templates/docs/java_usage" data-title="Java Usage"><span>Java Usage</span></a></li><li class=""><a href="/closure/templates/docs/security" data-title="Security"><span>Security</span></a></li><li class=""><a href="/closure/templates/docs/translation" data-title="Translation"><span>Translation</span></a></li><li class=""><a href="/closure/templates/docs/bidi_support" data-title="Bidi Support"><span>Bidi Support</span></a></li><li class=""><a href="/closure/templates/docs/syntax_highlighting" data-title="Syntax Highlighting"><span>Syntax Highlighting</span></a></li><li class=""><a href="/closure/templates/docs/plugins" data-title="Plugins"><span>Plugins</span></a></li></ul></li><li class=""><a href="http://code.google.com/p/closure-templates/" data-title="Project on Google Code"><span>Project on Google Code</span></a></li><li class=""><a href="/closure/templates/faq" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="/closure/templates/community" data-title="Community"><span>Community</span></a></li></ul></li><li class=""><a href="/closure/utilities" data-title="Linter"><span>Linter</span></a><ul><li class=""><a href="/closure/utilities/docs/linter_howto" data-title="How to Use Closure Linter"><span>How to Use Closure Linter</span></a></li><li class=""><a href="http://code.google.com/p/closure-linter/" data-title="Project on Google Code"><span>Project on Google Code</span></a></li><li class=""><a href="/closure/utilities/community" data-title="Community"><span>Community</span></a></li></ul></li></ul><hr/><ul><li class=""><a href="/closure/faq" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="http://closuretools.blogspot.com/" data-title="Blog"><span>Blog</span></a></li></ul></nav>
+
+
+
+      </div>
+      
+
+      <div id="gc-content"
+           
+           
+           >
+        
+        <div>
+  
+          
+  
+  <h1 itemprop="name" class="page-title" >Annotating JavaScript for the Closure Compiler</h1>
+  
+  <div itemprop="articleBody">
+  
+
+
+
+<h2>Overview</h2>
+
+<p>
+  The Closure Compiler can use data type information about JavaScript
+  variables to provide enhanced optimization and warnings. JavaScript,
+  however, has no way to declare types.
+</p>
+<p>
+  Because JavaScript has no syntax for declaring the type of a
+  variable, you must use comments in the code to specify the data
+  type.
+</p>
+<p>
+  The Closure Compiler's type language derives from the annotations
+  used by
+  the <a href="http://code.google.com/p/jsdoc-toolkit/">JSDoc</a>
+  document-generation tool. This document describes the set of
+  annotations and type expressions that the Closure Compiler
+  understands.
+</p>
+
+<h2>Table of Contents</h2>
+<ol class="toc">
+  <li><a href="#tags">JSDoc Tags</a></li>
+  <li><a href="#types">Type Expressions</a></li>
+</ol>
+
+<h2 id="tags">JSDoc Tags</h2>
+<p>
+  The Closure Compiler looks for type information in <em>JSDoc</em>
+  tags. Use the JSDoc tags described in the reference table below to
+  help the compiler optimize your code and check it for possible type
+  errors and other mistakes.
+</p>
+<p>
+  This table includes only tags that affect on the behavior
+  of the Closure Compiler. For information about other JSDoc tags see
+  the <a href="http://code.google.com/p/jsdoc-toolkit/wiki/TagReference">JSDoc
+  Toolkit documentation</a>.
+</p>
+
+<table border="1" style="border-collapse:collapse" cellpadding="4">
+<thead>
+<tr>
+<th>Tag</th>
+<th>Syntax &amp; Examples</th>
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr id="tag-const"><td>
+<code>@const</code>
+</td><td><tt>
+@const
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @const */ var MY_BEER = 'stout';
+
+/**
+ * My namespace's favorite kind of beer.
+ * @const
+ * @type {string}
+ */
+mynamespace.MY_BEER = 'stout';
+
+/** @const */ MyClass.MY_BEER = 'stout';
+</pre>
+</td><td>
+<p>
+Marks a variable as read-only.  The compiler can
+inline <code>@const</code> variables, which optimizes the JavaScript
+code.
+</p>
+<p>
+The type declaration and additional comment are optional. If you
+provide a type declaration, put the declaration on a separate line.
+</p>
+<p>
+The compiler produces a warning if a variable marked
+with <code>@const</code> is assigned a value more than once. If the
+variable is an object, note that the compiler does not prohibit
+changes to the properties of the object.
+</p>
+</td>
+</tr>
+
+<tr id="tag-constructor"><td>
+<code>@constructor</code>
+</td><td><tt>
+@constructor
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+
+/**
+ * A rectangle.
+ * @constructor
+ */
+function GM_Rect() {
+  ...
+}
+</pre></td><td>
+<p>
+  Marks a function as a constructor.
+</p>
+<p>
+  The compiler requires a <code>@constructor</code> annotation for any
+  function that is used with the <code>new</code> keyword
+</p>
+</td>
+</tr>
+
+<tr id="tag-define"><td>
+<code>@define</code>
+</td><td><tt>
+@define {Type} description
+</tt>
+
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @define {boolean} */
+var ENABLE_DEBUG = true;
+
+/** @define {boolean} */
+goog.userAgent.ASSUME_IE = false;
+</pre></td><td>
+Indicates a constant that can be overridden by the compiler at compile-time.
+With the example on the left, you can pass the flag
+<tt>--define='ENABLE_DEBUG=false'</tt>
+to the compiler to change the value of
+<tt>ENABLE_DEBUG</tt> to <tt>false</tt>.
+</td>
+</tr>
+
+<tr id="tag-deprecated"><td>
+<code>@deprecated</code>
+
+</td><td><tt>
+@deprecated Description
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * Determines whether a node is a field.
+ * @return {boolean} True if the contents of
+ *     the element are editable, but the element
+ *     itself is not.
+ * @deprecated Use isField().
+ */
+BN_EditUtil.isTopEditableField = function(node) {
+  ...
+};
+</pre></td>
+<td>
+<p>
+Warns against using the marked function, method, or property should
+not be used. Using a deprecated method produces a compiler warning.
+</p>
+</td>
+</tr>
+
+<tr id="tag-dict"><td>
+<code>@dict</code>
+</td><td><tt>
+@dict
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * @constructor
+ * @dict
+ */
+function Foo() {}
+var obj1 = new Foo();
+obj1['x'] = 123;
+obj1.x = 234;  // warning
+
+var obj2 = /** @dict */ { x: 321 };
+obj2.x = 123;  // warning
+</pre></td><td>
+<p>
+  <code>@dict</code> is used to create objects with a variable number of
+  properties.
+  When a constructor (<code>Foo</code> in the example) is annotated with
+  <code>@dict</code>, you can only use the bracket notation to access the
+  properties of <code>Foo</code> objects.
+  The annotation can also be used directly on object literals.
+</p>
+</td>
+</tr>
+
+<tr id="tag-enum"><td>
+<code>@enum</code>
+</td><td><tt>
+
+@enum {Type}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * Enum for tri-state values.
+ * @enum {number}
+ */
+project.TriState = {
+  TRUE: 1,
+  FALSE: -1,
+  MAYBE: 0
+};
+</pre></td><td>
+<p>
+Specifies the type of an enum. An enum is an object whose properties
+constitute a set of related constants. The <code>@enum</code> tag must
+be followed by a <a href="#types">type expression</a>.
+</p>
+<p>The type label of an enum applies to each property of the
+enum. For example if an enum has type <code>number</code>, each of its
+enumerated properties must be a number.
+</p>
+<p>
+If the type of an enum is omitted, <code>number</code> is assumed.
+</p>
+</td>
+</tr>
+
+<tr id="tag-expose"><td>
+<code>@expose</code>
+</td><td><tt>
+@expose
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @expose */
+MyClass.prototype.exposedProperty = 3;
+</pre></td><td>
+<p>
+Declares an exposed property. Exposed properties
+will not be removed, or renamed, or collapsed,
+or optimized in any way by the compiler. No properties
+with the same name will be able to be optimized either.
+</p><p>
+<code>@expose</code> should never be used in library code,
+because it will prevent that property from ever getting
+removed.
+</p>
+</td>
+</tr>
+
+<tr id="tag-extends"><td>
+<code>@extends</code>
+</td><td><tt>
+@extends {Type}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * Immutable empty node list.
+ * @constructor
+ * @extends goog.ds.BasicNodeList
+ */
+goog.ds.EmptyNodeList = function() {
+  ...
+};
+
+</pre></td><td>
+<p>
+Marks a class or interface as inheriting from another class. A class
+marked with <code>@extends</code> must also be marked with
+either <code>@constructor</code> or <code>@interface</code>.
+</p>
+<p>
+Note: <code>@extends</code> does not cause a class to inherit from
+another class. The annotation simply tells the compiler that it can
+treat one class as a subclass of another during type-checking.
+</p>
+
+<p>
+For an example implementation of inheritance, see
+<a href="/closure/library/docs/introduction#oop">the Closure
+Library function <code>goog.inherits()</code></a>.
+</p>
+</td>
+</tr>
+
+<tr id="tag-implements"><td>
+<code>@implements</code>
+</td><td><tt>
+@implements {Type}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+
+/**
+ * A shape.
+ * @interface
+ */
+function Shape() {};
+Shape.prototype.draw = function() {};
+
+/**
+ * @constructor
+ * @implements {Shape}
+ */
+function Square() {};
+Square.prototype.draw = function() {
+  ...
+};
+</pre></td><td>
+<p>
+Used with <code>@constructor</code> to indicate that a
+class implements an interface.
+</p>
+<p>
+The compiler produces a warning if you tag a constructor
+with <code>@implements</code> and then fail to implement all of
+the methods and properties defined by the interface.
+</p>
+</td>
+</tr>
+
+<tr id="tag-inheritDoc"><td>
+<code>@inheritDoc</code>
+</td><td><tt>
+@inheritDoc
+
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @inheritDoc */
+project.SubClass.prototype.toString = function() {
+  ...
+};
+</pre></td><td>
+<p>
+Indicates that a method or property of a subclass
+intentionally hides a method or property of the superclass, and has
+exactly the same documentation. Note that
+the <code>@inheritDoc</code> tag
+implies the <a href="#tag-override"><code>@override</code></a> tag.
+</p>
+</td>
+</tr>
+
+<tr id="tag-interface"><td>
+<code>@interface</code>
+</td><td><tt>
+@interface
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * A shape.
+ * @interface
+ */
+function Shape() {};
+Shape.prototype.draw = function() {};
+
+/**
+ * A polygon.
+ * @interface
+ * @extends {Shape}
+ */
+function Polygon() {};
+Polygon.prototype.getSides = function() {};
+
+</pre></td>
+<td>
+<p>
+  Marks a function as an interface. An interface specifies the
+required members of a type. Any class that implements an interface
+must implement all of the methods and properties defined on the
+interface's
+prototype. See <a href="#tag-implements"><code>@implements</code></a>.
+</p>
+<p>
+  The compiler verifies that interfaces are not instantiated. If
+  the <code>new</code> keyword is used with an interface function, the
+  compiler produces a warning.
+</p>
+</td></tr>
+
+<tr id="tag-lends"><td>
+<code>@lends</code>
+</td><td><tt>
+@lends {objectName}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+goog.object.extend(
+    Button.prototype,
+    /** @lends {Button.prototype} */ ({
+      isButton: function() { return true; }
+    }));
+</pre></td><td>
+<p>
+  Indicates that the keys of an object literal should
+  be treated as properties of some other object. This annotation
+  should only appear on object literals.
+<p/><p>
+  Notice that the name in braces is not a type name like
+  in other annotations. It's an object name. It names
+  the object to which the properties are lent.
+  For example, <code>@type {Foo}</code> means "an instance of Foo",
+  but <code>@lends {Foo}</code> means "the constructor Foo".
+<p/><p>
+  The <a href="http://code.google.com/p/jsdoc-toolkit/wiki/TagLends">JSDoc
+  Toolkit docs</a> have more information on this annotation.
+</p>
+</td>
+</tr>
+
+<tr id="tag-license"><td>
+<code>@license</code> or <code id="tag-preserve">@preserve</code>
+</td><td><tt>
+
+@license Description
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * @preserve Copyright 2009 SomeThirdParty.
+ * Here is the full license text and copyright
+ * notice for this file. Note that the notice can span several
+ * lines and is only terminated by the closing star and slash:
+ */
+</pre></td><td>Tells the compiler to insert the associated comment
+before the compiled code for the marked file. This annotation allows
+important notices (such as legal licenses or copyright text) to
+survive compilation unchanged. Line breaks are preserved.
+</td>
+</tr>
+
+
+
+<tr id="tag-nosideeffects"><td>
+<code>@nosideeffects</code>
+</td><td><tt>
+@nosideeffects
+</tt>
+
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @nosideeffects */
+function noSideEffectsFn1() {
+  ...
+};
+
+/** @nosideeffects */
+var noSideEffectsFn2 = function() {
+  ...
+};
+
+/** @nosideeffects */
+a.prototype.noSideEffectsFn3 = function() {
+  ...
+};
+</pre>
+</td><td>
+<p>
+Indicates that a call to the declared function has no side effects.
+This annotation allows the compiler to remove calls to the function
+if the return value is not used. The annotation is only allowed in
+<a href="/closure/compiler/docs/api-tutorial3#externs"><code>extern files</code></a>.
+</p>
+</td></tr>
+
+<tr id="tag-override"><td>
+<code>@override</code>
+</td><td><tt>
+
+@override
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * @return {string} Human-readable representation of
+ *     project.SubClass.
+ * @override
+ */
+project.SubClass.prototype.toString = function() {
+  ...
+};
+</pre></td><td>
+<p>
+Indicates that a method or property of a subclass intentionally hides
+a method or property of the superclass. If no other annotations are
+included, the method or property automatically inherits annotations
+from its superclass.
+</p>
+</td>
+</tr>
+
+<tr id="tag-param"><td>
+<code>@param</code>
+</td><td><tt>
+@param {Type} varname Description
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+
+/**
+ * Queries a Baz for items.
+ * @param {number} groupNum Subgroup id to query.
+ * @param {string|number|null} term An itemName,
+ *     or itemId, or null to search everything.
+ */
+goog.Baz.prototype.query = function(groupNum, term) {
+  ...
+};
+</pre></td>
+<td>
+<p>Used with method, function and constructor definitions to specify
+the types of function arguments.
+</p>
+<p>
+The <code>@param</code> tag must be
+followed by a <a href="#types">type expression</a>.
+</p>
+</td>
+</tr>
+
+<tr id="tag-private"><td>
+<code>@private</code>
+</td><td><tt>
+@private
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * Handlers that are listening to this logger.
+ * @type Array.&lt;Function>
+ * @private
+ */
+this.handlers_ = [];
+
+</pre></td><td>
+<p>Marks a member as private. Only code in the same file can access
+global variables and functions
+marked <code>@private</code>. Constructors
+marked <code>@private</code> can only be instantiated by code in the
+same file and by their static and instance members.
+</p>
+<p>
+The public static properties of constructors
+marked <code>@private</code> may also be accessed anywhere, and the
+<code>instanceof</code> operator can always access <code>@private</code>
+members.</p>
+</td>
+</tr>
+
+<tr id="tag-protected"><td>
+<code>@protected</code>
+</td><td><tt>
+@protected
+</tt>
+<p><i>For example:</i></p>
+
+<pre class="prettyprint">
+/**
+ * Sets the component's root element to the given element.
+ * Considered protected and final.
+ * @param {Element} element Root element for the component.
+ * @protected
+ */
+goog.ui.Component.prototype.setElementInternal = function(element) {
+  // ...
+};
+</pre></td><td>
+<p>
+Indicates that a member or property is protected.
+</p>
+<p>
+A property marked <code>@protected</code> is accessible to:
+<ul>
+<li>all code in the same file</li>
+<li>static methods and instance methods of any subclass of the class
+on which the property is defined.</li>
+</ul>
+</p>
+
+</td>
+</tr>
+
+<tr id="tag-return"><td>
+<code>@return</code>
+</td><td><tt>
+@return {Type} Description
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * Returns the ID of the last item.
+ * @return {string} The hex ID.
+ */
+goog.Baz.prototype.getLastId = function() {
+  ...
+  return id;
+};
+
+</pre></td><td>
+<p>
+Specifies the return types of method and function definitions.
+
+The <code>@return</code> tag must be
+followed by a <a href="#types">type expression</a>.
+</p><p>
+If there is no return value, do not use a <code>@return</code>
+tag.
+</p>
+</td>
+</tr>
+
+<tr id="tag-struct"><td>
+<code>@struct</code>
+</td><td><tt>
+@struct
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * @constructor
+ * @struct
+ */
+function Foo(x) {
+  this.x = x;
+}
+var obj1 = new Foo(123);
+obj1['x'] = "asdf";  // warning
+obj1.y = 5;  // warning
+
+var obj2 = /** @struct */ { x: 321 };
+obj2['x'] = 123;  // warning
+</pre></td><td>
+<p>
+  <code>@struct</code> is used to create objects with a fixed number of
+  properties.
+  When a constructor (<code>Foo</code> in the example) is annotated with
+  <code>@struct</code>, you can only use the dot notation to access the
+  properties of <code>Foo</code> objects.
+  The annotation can also be used directly on object literals.
+</p>
+</td>
+</tr>
+
+<tr id="tag-this"><td>
+<code>@this</code>
+</td><td><tt>
+@this {Type}
+
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+chat.RosterWidget.extern('getRosterElement',
+    /**
+     * Returns the roster widget element.
+     * @this {Widget}
+     * @return {Element}
+     */
+    function() {
+      return this.getComponent().getElement();
+    });
+</pre></td><td>
+<p>
+Specifies the type of the object to which the keyword <code>this</code> refers
+within a function. The <code>@this</code> tag must be
+followed by a <a href="#types">type expression</a>.
+</p><p>
+To prevent compiler warnings, you must use
+a <code>@this</code> annotation whenever <code>this</code>
+appears in a function that is neither a prototype method nor a
+function marked as a <code>@constructor</code>.</p>
+</td>
+</tr>
+
+<tr id="tag-type"><td>
+<code>@type</code>
+</td><td><tt>
+@type {Type}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/**
+ * The message hex ID.
+ * @type {string}
+ */
+var hexId = hexId;
+</pre></td><td>
+<p>Identifies the type of a variable, property, or
+expression. The <code>@type</code> tag must be followed by
+a <a href="#types">type expression</a>.
+</p>
+</td>
+</tr>
+
+
+<tr id="tag-typedef"><td>
+<code>@typedef</code>
+</td><td><tt>
+@typedef {Type}
+</tt>
+<p><i>For example:</i></p>
+<pre class="prettyprint">
+/** @typedef {(string|number)} */
+goog.NumberLike;
+
+/** @param {goog.NumberLike} x A number or a string. */
+goog.readNumber = function(x) {
+  ...
+}
+</pre>
+</td>
+<td>
+<p>
+  Declares an alias for a more complex type.
+</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="types">Type Expressions</h2>
+<p>
+  You can specify the data type of any variable, property, expression
+  or function parameter with a <em>type expression</em>. A type
+  expression consists of curly braces ("{ }") containing some
+  combination of the type operators described below.
+</p>
+<p>
+  Use a type expression with
+  the <a href="#tag-param"> <code>@param</code></a> tag to declare the
+  type of a function parameter. Use a type expression with
+  the <a href="#tag-type"><code>@type</code></a> tag to declare the
+  type of a variable, property, or expression.
+</p>
+<p>
+  The more types you specify in your code, the more optimizations the
+  compiler can make and the more mistakes it can catch.
+</p>
+<p>
+  The compiler uses these annotations to type-check your program.
+  Note that the Closure Compiler does not make any promises that it
+  will be able to figure out the type of every expression in your
+  program. It makes a best effort by looking at how variables are
+  used, and at the type annotations attached to their
+  declarations. Then, it uses a number of type inference algorithms to
+  figure out the type of as many expressions as possible.  Some of
+  these algorithms are straightforward ("if x is a number, and we see
+  <code>y = x;</code>, then y is a number").  Some are more indirect ("if f's
+  first parameter is documented as a callback that must take a number, 
+  and we see <code>f(function(x) { /** ... */ });</code>, then x must be 
+  a number").
+</p>
+
+<table border="1" style="border-collapse:collapse" cellpadding="4">
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Syntax Examples</th>
+
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Type Name</td>
+<td>
+<code>{boolean}</code><br><code>{Window}</code><br><code>{goog.ui.Menu}</code>
+</td>
+
+<td>Specifies the name of a type.</td>
+</tr>
+
+<tr>
+<td>Type Application</td>
+<td>
+<code>{Array.&lt;string>}</code><br>An array of strings.<p/>
+<code>{Object.&lt;string, number>}</code>
+<br>An object in which the keys are strings and the values are numbers.
+
+</td>
+<td>Parameterizes a type with a set of type arguments.
+Similar to Java generics.
+</td>
+</tr>
+
+<tr id="unions">
+<td>Type Union</td>
+<td>
+<code>{(number|boolean)}</code><br>A number or a boolean.
+<br><br>Note the parentheses, which are required.
+</td>
+<td>Indicates that a value might have type A OR type B.</td>
+</tr>
+
+<tr id="records">
+<td>Record Type</td>
+<td>
+<code>&#123;{myNum: number, myObject}}</code>
+<br>An anonymous type with both a property named <code>myNum</code>
+that has a value of type <code>number</code> and a property
+named <code>myObject</code> that has a value of any type.
+</td>
+<td>
+<p>Indicates that the value has the specified members
+with values of the specified types.</p>
+
+<p>Braces are part of the type syntax. For example, to
+denote an <code>Array</code> of objects that have
+a <code>length</code> property, you might
+write: <br><code>Array.<{length}></code>. In the example on the left,
+the outer braces indicate that this is a type expression and the inner braces
+indicate that this is a record type.</p>
+</td>
+</tr>
+
+<tr id="null">
+<td>Nullable type</td>
+
+<td>
+<code>{?number}</code><br> A number or <code>null</code>.
+</td>
+<td>
+<p>Indicates that a value is type A or <code>null</code>.
+</p>
+<p>
+All object types are nullable by default whether or not they are
+declared with the Nullable operator. An object type is defined as
+anything except a function, string, number, or boolean. To make an object type
+non-nullable, use the <a href="#nonnull">Non-nullable</a>
+operator.</p>
+</td>
+</tr>
+
+<tr id="nonnull">
+<td>Non-nullable type</td>
+
+<td>
+<code>{!Object}</code><br> An Object, but never the <code>null</code> value.
+</td>
+<td>
+<p>Indicates that a value is type A and not null.</p>
+
+<p>Functions and all value types (boolean, number, and string) are non-nullable by
+default whether or not they are declared with the Non-nullable
+operator.  To make a value or function type nullable, use
+the <a href="#null">Nullable</a> operator.</p>
+</td>
+</tr>
+
+<tr>
+
+<td>Function Type</td>
+<td>
+<code>{function(string, boolean)}</code><br>
+A function that takes two parameters (a string and a boolean),
+and has an unknown return value.<br/>
+</td>
+<td>Specifies a function and the types of the function's
+parameters.</td>
+</tr>
+
+<tr>
+<td>Function Return Type</td>
+<td>
+
+<code>{function(): number}</code><br>
+A function that takes no parameters and returns a number.<br/>
+</td>
+<td>Specifies the type of a function's return
+value.</td>
+</tr>
+
+<tr>
+<td>Function <code>this</code> Type</td>
+<td>
+
+<code>{function(this:goog.ui.Menu, string)}</code><br>
+A function that takes one parameter (a string), and executes
+in the context of a goog.ui.Menu.
+</td>
+<td>Specifies the type of the value of <code>this</code> within the
+function.</td>
+</tr>
+
+<tr>
+<td>Function <code>new</code> Type</td>
+<td>
+
+<code>{function(new:goog.ui.Menu, string)}</code><br>
+A function that takes one parameter (a string), and creates a new
+instance of goog.ui.Menu when called with the 'new' keyword.
+</td>
+<td>Specifies the constructed type of a constructor.</td>
+</tr>
+
+<tr id="variable-parameters">
+<td>Variable parameters</td>
+<td>
+<code>{function(string, ...[number]): number}</code><br>
+A function that takes one parameter (a string), and then a variable number
+of parameters that must be numbers.
+</td>
+
+<td>Indicates that a function type takes a variable number of
+parameters, and specifies a type for the variable parameters.</td>
+</tr>
+
+<tr>
+<td>
+Variable parameters (in <code>@param</code> annotations)
+</td>
+<td>
+<code>@param {...number} var_args</code><br>
+A variable number of parameters to an annotated function.
+
+</td>
+<td>
+Indicates that the annotated function accepts a variable number of
+parameters, and specifies a type for the variable parameters.
+</td>
+</tr>
+
+<tr>
+<td>
+Optional parameter in a <code>@param</code> annotation
+</td>
+
+<td>
+<code>@param {number=} opt_argument</code><br>
+An optional parameter of type <code>number</code>.
+</td>
+<td>
+<p>Indicates that the argument described by
+a <code>@param</code> annotation is optional. A function call
+can omit an optional argument. An optional
+parameter cannot precede a non-optional parameter in the parameter
+list.</p>
+
+<p>
+  If a method call omits an optional parameter, that argument will have
+  a value of <code>undefined</code>. Therefore if the method stores
+  the parameter's value in a class property, the type declaration of
+  that property must include a possible value
+  of <code>undefined</code>, as in the following example:
+</p>
+
+<pre class="prettyprint">
+/**
+ * Some class, initialized with an optional value.
+ * @param {Object=} opt_value Some value (optional).
+ * @constructor
+ */
+function MyClass(opt_value) {
+  /**
+   * Some value.
+   * @type {Object|undefined}
+   */
+  this.myValue = opt_value;
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td>Optional argument in a function type</td>
+<td>
+<code>{function(?string=, number=)}</code><br>
+A function that takes one optional, nullable string and one optional number as
+arguments.
+</td>
+<td>Indicates that an argument in a function type is optional. An
+optional argument can be omitted from the function call. An optional
+argument cannot precede a non-optional argument in the argument
+list.</td>
+</tr>
+
+<tr>
+<td>The ALL type</td>
+<td><code>{*}</code></td>
+
+<td>Indicates that the variable can take on any type.</td>
+</tr>
+
+<tr>
+<td>The UNKNOWN type</td>
+<td><code>{?}</code></td>
+
+<td>Indicates that the variable can take on any type, and the compiler
+should not type-check any uses of it.</td>
+</tr>
+
+</table>
+
+      
+  </div>
+
+  
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-license">
+
+    
+      
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="/site-policies">Site Policies</a>.</p>
+      
+    
+    
+    
+
+</div>
+
+
+
+<div itemprop="datePublished" content="2013-07-29T16:48:00.103990" id="gc-content-last-updated">Last updated July 29, 2013.</div>
+
+</div>
+
+
+
+
+      </div>
+  
+
+        
+      </div>
+        
+      
+
+      
+      
+      <footer id="gc-footer">
+        <div id="gc-copyright">
+          <a href="/">
+            <img id="developers-logo-footer" src="/_static/images/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left"/>
+          </a>
+          <ul>
+            <li><a href="http://www.google.com/">Google</a></li>
+            <li><a href="/site-terms">Terms of Service</a></li>
+            <li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a class="google-feedback" data-p="81425" data-b="Documentation"  data-v="devsite-20130903-rc00.default" href="">Report a bug</a></li>
+          </ul>
+        </div>
+        
+        <div id="gc-language">
+          <ul>
+            <li>
+              <form id="setlang" action="/i18n/setlang/" method="post">
+                <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='b1e2510afdaba665ceeb896cc254267d' /></div>
+                <select id="footer_language" name="language">
+                  <option
+                     value="ar"
+                     >
+                    العربيّة
+                  </option><option
+                     value="bg"
+                     >
+                    български
+                  </option><option
+                     value="ca"
+                     >
+                    català
+                  </option><option
+                     value="zh-cn"
+                     >
+                    简体中文
+                  </option><option
+                     value="zh-tw"
+                     >
+                    繁體中文
+                  </option><option
+                     value="hr"
+                     >
+                    Hrvatski
+                  </option><option
+                     value="cs"
+                     >
+                    česky
+                  </option><option
+                     value="da"
+                     >
+                    Dansk
+                  </option><option
+                     value="nl"
+                     >
+                    Nederlands
+                  </option><option
+                     value="en"
+                      selected="selected" >
+                    English
+                  </option><option
+                     value="fa"
+                     >
+                    فارسی
+                  </option><option
+                     value="fi"
+                     >
+                    suomi
+                  </option><option
+                     value="fr"
+                     >
+                    Français
+                  </option><option
+                     value="de"
+                     >
+                    Deutsch
+                  </option><option
+                     value="el"
+                     >
+                    Ελληνικά
+                  </option><option
+                     value="he"
+                     >
+                    עברית
+                  </option><option
+                     value="hi"
+                     >
+                    Hindi
+                  </option><option
+                     value="hu"
+                     >
+                    Magyar
+                  </option><option
+                     value="id"
+                     >
+                    Bahasa Indonesia
+                  </option><option
+                     value="it"
+                     >
+                    italiano
+                  </option><option
+                     value="ja"
+                     >
+                    日本語
+                  </option><option
+                     value="ko"
+                     >
+                    한국어
+                  </option><option
+                     value="lv"
+                     >
+                    latviešu
+                  </option><option
+                     value="lt"
+                     >
+                    Lithuanian
+                  </option><option
+                     value="nb"
+                     >
+                    Norsk (bokmål)
+                  </option><option
+                     value="nn"
+                     >
+                    Norsk (nynorsk)
+                  </option><option
+                     value="pl"
+                     >
+                    polski
+                  </option><option
+                     value="pt-br"
+                     >
+                    Português Brasileiro
+                  </option><option
+                     value="pt"
+                     >
+                    Português
+                  </option><option
+                     value="ro"
+                     >
+                    Română
+                  </option><option
+                     value="ru"
+                     >
+                    Русский
+                  </option><option
+                     value="sr"
+                     >
+                    српски
+                  </option><option
+                     value="sk"
+                     >
+                    slovenský
+                  </option><option
+                     value="sl"
+                     >
+                    Slovenščina
+                  </option><option
+                     value="es"
+                     >
+                    español
+                  </option><option
+                     value="sv"
+                     >
+                    Svenska
+                  </option><option
+                     value="th"
+                     >
+                    Thai
+                  </option><option
+                     value="tr"
+                     >
+                    Türkçe
+                  </option><option
+                     value="uk"
+                     >
+                    Українська
+                  </option><option
+                     value="vi"
+                     >
+                    Vietnamese
+                  </option>
+                </select>
+              </form>
+            </li>
+          </ul>
+        </div>
+        
+      </footer>
+      
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href='http://www.google.com/+'>Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Cancel</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Try again</button>
+      
+      <button>Cancel</button>
+    </div>
+    <script src="/_static/js/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($, null, '',
+            'en', true);
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+    $('#setlang select').each(function() {
+      if ($.browser.msie) {
+        $(this).change(function() {
+          $('#setlang').submit();
+        });
+      } else {
+        $(this).kdSelect({'change': function() {
+          $('#setlang').submit();
+        }});
+      }
+    });
+    </script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+
+    
+
+    <script>
+      
+      google.load('visualization', '1', {packages: ['table']});
+    </script>
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+    
+
+
+
+
+
+<script type="text/javascript" defer>
+
+
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+
+  </body>
+
+  
+</html>
